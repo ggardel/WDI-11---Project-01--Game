@@ -1,0 +1,32 @@
+
+#body-index {
+  background-size: 1500px;
+}
+h1 {
+  color: rgb(222, 155, 41);
+  font-size: 70px;
+  text-align:center;
+  font-family: sans-serif;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin:5px;
+  text-shadow: -1.5px -2.5px 0px white;
+}
+
+h2 {
+  color: rgb(196, 159, 85);
+  font-size: 30px;
+  font-style: italic;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin: 5px;
+  text-shadow: -1px -2px 0px white;
+}
+.about {
+  color: white;
+  display: inline-block;
+  font-size: 20px;
+  font-family: arial, sans-serif;
+  text-align: center;;
+}
