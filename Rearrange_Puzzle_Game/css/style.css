@@ -2,6 +2,10 @@
 #body-index {
   background-size: 1500px;
 }
+#tiles_img {
+  background-size: auto;
+
+}
 h1 {
   color: rgb(222, 155, 41);
   font-size: 70px;
@@ -18,15 +22,81 @@ h2 {
   font-size: 30px;
   font-style: italic;
   text-align: center;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  margin: 5px;
-  text-shadow: -1px -2px 0px white;
+  padding: 1px 0px 1px 0px;
+  margin: auto;
+  text-shadow: -1px -1px 0px white;
 }
-.about {
-  color: white;
-  display: inline-block;
-  font-size: 20px;
+header {
+  background: rgba(0, 0, 0, 0.2);
+}
+#header_about{
+  background: rgba(0, 0, 0, 0.3);
+}
+ul {
+  padding: 0px 0px 5px;
+}
+li {
+  display: inline-block;;
+  padding: 0px 50px 0px 30px;
+
+}
+.about{
+  color: silver;
+  font-size: 18px;
   font-family: arial, sans-serif;
-  text-align: center;;
+  text-decoration: none;
+}
+footer {
+  color: silver;
+  font-size: 14px;
+  text-align: center;
+}
+#start-btn {
+  color:black;
+  font-size: 16px;
+  text-shadow:-1px -1px 0px white;
+  border-color: black;
+  background-color: silver;
+  text-align: center;
+  font-weight: bold;
+  border-style: double;
+  border-radius: 5px;
+  margin: 0 44% 40px;
+}
+img {
+  width:120px;
+  margin:30px 30px 40px 80px;
+  border-color:beige;
+  border-radius:20px;
+  border-style: inset;
+}
+.p {
+  color:antiquewhite;
+  font-size: 18px;
+}
+.subtitle {
+  color:rgb(228, 166, 59);
+  font-weight: bold;
+  font-size: 20px;
+}
+.text {
+  display:inline-block;
+  float:none;
+  text-align:justify;
+  margin:10px 100px 30px;
+  width:850px;
+  height: 200px;
+}
+.contact {
+color: white;
+font-style: italic;
+font-weight: bold;
+}
+.me {
+  display:inline-block;
+  clear:both;
+  }
+.link {
+  margin: 30px 450px 50px;
+  padding: 0px 0px 20px;
 }
