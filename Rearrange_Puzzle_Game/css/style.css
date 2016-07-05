@@ -55,17 +55,10 @@ footer {
 #footer_about{
   margin-top: 70px;
 }
-#start-btn {
-  color:black;
-  font-size: 16px;
-  text-shadow:-1px -1px 0px white;
-  border-color: black;
-  background-color: silver;
-  text-align: center;
-  font-weight: bold;
-  border-style: double;
-  border-radius: 5px;
-  margin: 0 44% 40px;
+#tblBoard {
+background-color: rgba(194, 199, 190, 0.2);
+border-color: rgb(219, 180, 122);
+color: rgb(222, 31, 37);
 }
 #me {
   width:120px;
@@ -135,4 +128,8 @@ text-align: center;
   color:silver;
   font-size: 18px;
   font-style: italic;
+}
+.touchingCells {
+background-color: lightgoldenrodyellow;
+cursor: pointer;
 }

@@ -18,11 +18,16 @@
     </nav>
   </header>
   <section>
-    <div class="box">
-      <div class="board">
-      </div>
-      <button id="start-btn"type="start" name="start">Start Game</button>
-    </div>
+    <table id="tblBoard" cellspacing="0" cellpadding="20" border="4">
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+    </table>
+    <button id="btnRestart">Start new game</button>
+    <br></br><button id="btnVersol">Verify Solvable</button>
+    <br></br><button id="btnReset">Reset</button>
+
   </section>
   <aside class="extra">
     <div class="score_box">
@@ -30,7 +35,7 @@
   </aside>
   <footer>Created with &hearts; by:<span class="name"> Gustavo Ferreira</footer>
 
-<script type="text/javascript" href="/JS/script.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 
 </body>
 </html>
