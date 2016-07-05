@@ -50,6 +50,10 @@ footer {
   color: silver;
   font-size: 14px;
   text-align: center;
+  margin:10px;
+}
+#footer_about{
+  margin-top: 70px;
 }
 #start-btn {
   color:black;
@@ -63,7 +67,7 @@ footer {
   border-radius: 5px;
   margin: 0 44% 40px;
 }
-img {
+#me {
   width:120px;
   margin:30px 30px 40px 80px;
   border-color:beige;
@@ -72,12 +76,13 @@ img {
 }
 .p {
   color:antiquewhite;
-  font-size: 18px;
+  font-size: 20px;
 }
 .subtitle {
   color:rgb(228, 166, 59);
   font-weight: bold;
-  font-size: 20px;
+  font-size: 25px;
+  text-align:-webkit-center
 }
 .text {
   display:inline-block;
@@ -87,16 +92,47 @@ img {
   width:850px;
   height: 200px;
 }
-.contact {
+#email {
 color: white;
 font-style: italic;
 font-weight: bold;
+text-align: center;
+}
+.contact{
+  color: white;
+  font-style: italic;
+  font-weight: bold;
 }
 .me {
   display:inline-block;
   clear:both;
   }
 .link {
-  margin: 30px 450px 50px;
+  margin: 100px 450px 20px;
   padding: 0px 0px 20px;
+}
+.external_link{
+  margin:0px 120px 0px 80px;
+}
+#puzzle_img {
+  width:250px;
+  margin: 100px 90px 0px 200px;
+
+}
+.img_instr {
+  display:inline-block;
+  float:left;
+}
+
+.instructions_text {
+  width: 550px;
+  display:inline-block;
+  margin: 00px 60px 60px 120px;
+  text-align: justify ;
+}
+#info {
+  text-align: center;
+  color:silver;
+  font-size: 18px;
+  font-style: italic;
 }
