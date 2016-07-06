@@ -11,10 +11,15 @@ function restart(){
   for(i=0; i < numbers.length; i++){
     oCells[i].innerHTML = numbers[i];
   }
-  reDrawBoard(numbers.length);
+    reDrawBoard(numbers.length);
+
 }
+/*not sure yet! I believe will act the same as restart so maybe
+ no need for it.. once will restart after reset..and to restart will reset automactly
+ will need to .....remove the button..... in case decide for not use it.*/
+
 ///////to reset the board combination button...
-function reset1(){
+/*function reset1(){
    m = 0;
  for(i=0; i < oCells.length; i++){
    oCells[i].innerHTML = '';
@@ -25,13 +30,15 @@ function reset1(){
    oCells[i].innerHTML = numbers[i];
   }
   reDrawBoard(numbers.length);
-}
+}*/
 
 ///////
+
+
 //This will make the board to 'clear'to new set of combination
 function reDrawBoard(num){
   for(var i = 0; i < oCells.length; i++){
-    oCells[i].onclick = oCells[i].length.className = oCells[i].title = "";
+    oCells[i].onclick = oCells[i].className = oCells[i].title = "";
   }
   //will locate the cell creating a new array with new set
   touchingCells = new Array();
@@ -44,11 +51,31 @@ function reDrawBoard(num){
      assignOnclicks();
   }
 
-
-
-
-
-
-//
-
 /////////
+
+//to select the cells around the blank space
+function getTouchingCells(obj){
+  var newTouchingCells = new Array();
+  //select left touching cell
+   if(obj.cellNum-1 >= 0){
+     newTouchingCells.push(oTable.rows[obj.rowNum].cells[obj.cellNum-1]);
+  }
+  //select right touching cell
+   if(obj.cellNum+1 <= 3){
+     newTouchingCells.push(oTable.rows[obj.rowNum].cells[obj.cellNum+1]);
+  }
+  //select above touching cell
+   if(obj.rowNum-1 >= 0){
+     newTouchingCells.push(oTable.rows[obj.rowNum-1].cells[obj.cellNum]);
+  }
+  //select below touching cell
+   if(obj.rowNum+1 <= 3){
+     newTouchingCells.push(oTable.rows[obj.rowNum+1].cells[obj.cellNum]);
+  }
+
+ for(i=0; i < newTouchingCells.length; i++){
+   newTouchingCells[i].className='touchingCells';
+   newTouchingCells[i].title = 'Swap this number';
+  }
+   return newTouchingCells;
+}
