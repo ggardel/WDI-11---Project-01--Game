@@ -1,5 +1,5 @@
 //will set the game to the user to play
-function restart(){
+function start(){
   m = 0;//with m = moves 0
   for(i=0; i < oCells.length; i++){
     oCells[i].innerHTML = '';
@@ -12,32 +12,12 @@ function restart(){
   for(i=0; i < numbers.length; i++){
     oCells[i].innerHTML = numbers[i];
   }
-    reDrawBoard(numbers.length);
+    drawBoard(numbers.length);
 
 }
-/*not sure yet! I believe will act the same as restart so maybe
- no need for it.. once will restart after reset..and to restart will reset automactly
- will need to .....remove the button..... in case decide for not use it.*/
-
-///////to reset the board combination button...
-/*function reset1(){
-   m = 0;
- for(i=0; i < oCells.length; i++){
-   oCells[i].innerHTML = '';
-}
-  numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-// numbers.shuffle();
- for(i=0; i < numbers.length; i++){
-   oCells[i].innerHTML = numbers[i];
-  }
-  reDrawBoard(numbers.length);
-}*/
-
-///////
-
 
 //This will make the board to 'clear'to new set of combination
-function reDrawBoard(num){
+function drawBoard(num){
   for(var i = 0; i < oCells.length; i++){
     oCells[i].onclick = oCells[i].className = oCells[i].title = "";
   }
@@ -113,13 +93,31 @@ function assignOnclicks(){
   var temp = oCells[cellIndex].innerHTML;
      oCells[cellIndex].innerHTML = '';
      oCells[blankIndx].innerHTML = temp;
-  if(isWinner()) {
-     alert('Congratulations, You win...!!!');
-     document.write("Totals: ", m);
-  } else {
     //cellIndex is the cell index of the new blank square
-    reDrawBoard(cellIndex);
-    }
+    drawBoard(cellIndex);
   }
  }
  }
+
+/////
+//so can use the shuffle function to switch numbers position..
+Array.prototype.shuffle = function() {
+    var s = [];
+  while (this.length) s.push(this.splice(Math.random() * this.length, 1));
+  while (s.length) this.push(s.pop());
+    return this;
+}
+//called to run when assigned on click.
+window.onload=function() {
+  m = 1;
+  oTable = document.getElementById('board');
+  oRows = document.getElementById('board').getElementsByTagName('tr');
+  oCells = document.getElementById('board').getElementsByTagName('td');
+ document.getElementById('btnStart').onclick = start;
+
+   start();
+}
+
+
+
+///////
