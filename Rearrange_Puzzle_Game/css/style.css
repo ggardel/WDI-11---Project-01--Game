@@ -52,6 +52,9 @@ footer {
   text-align: center;
   margin:10px;
 }
+#footer_index {
+  margin-top:90px;
+}
 #footer_about{
   margin-top: 70px;
 }
@@ -59,6 +62,7 @@ footer {
 background-color: rgba(194, 199, 190, 0.2);
 border-color: rgb(219, 180, 122);
 color: rgb(222, 31, 37);
+margin:80px 300px 50px 570px;
 }
 #me {
   width:120px;
@@ -116,7 +120,9 @@ text-align: center;
   display:inline-block;
   float:left;
 }
-
+.buttons {
+  text-align: center;
+}
 .instructions_text {
   width: 550px;
   display:inline-block;
@@ -130,6 +136,6 @@ text-align: center;
   font-style: italic;
 }
 .touchingCells {
-background-color: lightgoldenrodyellow;
+background-color: rgb(193, 235, 178);
 cursor: pointer;
 }
