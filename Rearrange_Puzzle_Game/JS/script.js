@@ -52,11 +52,11 @@ function drawBoard(num){
 
   //test start
   function test() {
-    moveTile();
     //swap inner html of blank cell and random touching cell
     var randomNum = Math.floor(Math.random()*touchingCells.length);
-    oBlank.innerHTML = touchingCells[randomNum].innerHTML;
-    touchingCells[randomNum].innerHTML = '';
+    // oBlank.innerHTML = touchingCells[randomNum].innerHTML;
+    // touchingCells[randomNum].innerHTML = '';
+    moveTile(touchingCells[randomNum]);
   }
 
   // //test end
@@ -115,8 +115,8 @@ function getCellIndex(obj){
 function assignOnclicks(){
   m = m + 1;
   for(i=0; i < touchingCells.length; i++){
-     touchingCells[i].onclick=function (e) {
-       moveTile(e.target);
+     touchingCells[i].onclick=function (event) {
+       moveTile(event.target);
      }
    }
  }
