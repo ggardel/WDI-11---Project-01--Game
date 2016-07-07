@@ -1,35 +1,26 @@
 //will set the game to the user to play
 function start(){
-  m = 0;//with m = moves 0
+     m = 0;//with m = moves 0
   //clear all cells
   for(i=0; i < oCells.length; i++){
     oCells[i].innerHTML = '';
   }
   //the number to be written on the box
-  numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+    numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
   //set the number for a position to play the game
-  //will call the function to mix the position...
- //numbers.shuffle();
-
-
-
+  //will call the function to write on the board
   for(i=0; i < numbers.length; i++){
     oCells[i].innerHTML = numbers[i];
   }
-   drawBoard(numbers.length);
-    //countUP ();
+    drawBoard(numbers.length);
+  //will shuffle 100 times based on legal moves
+  for(var i = 0; i < 100; i++){
+    shuffle()
+}
 }
 
-// place all cells in order 1-15
-//done
-// select the touchingCells (for i = 1, there should be 2)
-// var cells = document.selectElementByClassName("className")
 
-// pick one of those cells randomly
-
-// move one of those cells
-
-//This will make the board to 'clear'to new set of combination
+//This will write on the board
 function drawBoard(num){
   for(var i = 0; i < oCells.length; i++){
     oCells[i].onclick = oCells[i].className = oCells[i].title = "";
@@ -45,28 +36,24 @@ function drawBoard(num){
   oBlank.cellIndx = (oBlank.rowNum*4)+oBlank.cellNum;
 //get the cells touching blank square to the cells currently touching the blank square
   touchingCells = getTouchingCells(oBlank);
-
+//will write on the clicked assigned touching cells
      assignOnclicks();
   }
 
 
-  //test start
-  function test() {
+  //will mix the numbers based on the legal moves of touching cells
+  function shuffle() {
     //swap inner html of blank cell and random touching cell
     var randomNum = Math.floor(Math.random()*touchingCells.length);
-    // oBlank.innerHTML = touchingCells[randomNum].innerHTML;
-    // touchingCells[randomNum].innerHTML = '';
-    moveTile(touchingCells[randomNum]);
+    //oBlank.innerHTML = touchingCells[randomNum].innerHTML;
+     //touchingCells[randomNum].innerHTML = '';
+    moveTile(touchingCells[randomNum],"shuffle");
   }
 
   // //test end
 
-/////////
-
-
-
 //to select the cells around the blank space the ones..
-//that will be able to move...
+//that will be able to move...(legal move)
 function getTouchingCells(obj){
   var newTouchingCells = new Array();
   //select left touching cell
@@ -110,18 +97,17 @@ function getCellIndex(obj){
     }
   }
  }
-
-
+///Will assign the click with the legal move from the touching cells
 function assignOnclicks(){
   m = m + 1;
   for(i=0; i < touchingCells.length; i++){
      touchingCells[i].onclick=function (event) {
-       moveTile(event.target);
+       moveTile(event.target, "click");
      }
    }
  }
-
- function moveTile(targetElement){
+///Will write the moves on the board
+ function moveTile(targetElement, check){
    var cellIndex = (getRowIndex(targetElement)*4)+getCellIndex(targetElement);
    var blankIndx = oBlank.cellIndx;
    //will make swap clicked cell contents with blank cell contents
@@ -129,29 +115,30 @@ function assignOnclicks(){
    oCells[cellIndex].innerHTML = '';
    oCells[blankIndx].innerHTML = temp;
    //cellIndex is the cell index of the new blank square
-   drawBoard(cellIndex);
- }
 
+///Based on the last move if goal combination will check for the
+///for the winner if the winner will send a alert...with the total moves made by the player
+   if (checkWinner()&& check == "click"){
+     alert("Congratulations, You Win!!!! " + "Your Total: " + m*0.5 + " moves.");
+
+  } else{
+     drawBoard(cellIndex);
+}
+}
 /////
-//so can use the shuffle function to switch numbers position..
- //Array.prototype.shuffle = function() {
 
-
-
- /*var shuffle = function(){
-   for(var i =0; i < 3; i++) {
-   var p = document.querySelectorAll('.touchingCells')
-   p[Math.floor(Math.random()*p.length)].start();
- return this;*/
-
-
-
-//    var s = [];
-//  while (this.length) s.push(this.splice(Math.random() * this.length, 1));
-//  while (s.length) this.push(s.pop());
-//  return this;
-//}
-
+///Will check for the goal combination
+function checkWinner(){
+  var isWin =true;
+  numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+  for(var i = 0; i < numbers.length; i ++){
+    if (oCells[i].innerHTML != numbers[i]){
+      isWin = false;
+      i = numbers.length;
+    }
+  }
+  return isWin;
+}
 
 //called to run when assigned on click.
 window.onload=function() {
