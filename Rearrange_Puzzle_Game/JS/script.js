@@ -9,11 +9,14 @@ function start(){
   numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
   //set the number for a position to play the game
   //will call the function to mix the position...
- numbers.shuffle();
+ //numbers.shuffle();
+
+
+
   for(i=0; i < numbers.length; i++){
     oCells[i].innerHTML = numbers[i];
   }
-    drawBoard(numbers.length);
+   drawBoard(numbers.length);
     //countUP ();
 }
 
@@ -36,13 +39,27 @@ function drawBoard(num){
   //a new array with new set
   touchingCells = new Array();
   oBlank = oCells[num];
+  console.log(oBlank);
   oBlank.rowNum = new Number(getRowIndex(oBlank));
   oBlank.cellNum = new Number(getCellIndex(oBlank));
   oBlank.cellIndx = (oBlank.rowNum*4)+oBlank.cellNum;
 //get the cells touching blank square to the cells currently touching the blank square
   touchingCells = getTouchingCells(oBlank);
+
      assignOnclicks();
   }
+
+
+  //test start
+  function test() {
+    moveTile();
+    //swap inner html of blank cell and random touching cell
+    var randomNum = Math.floor(Math.random()*touchingCells.length);
+    oBlank.innerHTML = touchingCells[randomNum].innerHTML;
+    touchingCells[randomNum].innerHTML = '';
+  }
+
+  // //test end
 
 /////////
 
@@ -96,33 +113,44 @@ function getCellIndex(obj){
 
 
 function assignOnclicks(){
-    m = m + 1;
+  m = m + 1;
   for(i=0; i < touchingCells.length; i++){
-     touchingCells[i].onclick=function(){
-  var cellIndex = (getRowIndex(this)*4)+getCellIndex(this);
-  var blankIndx = oBlank.cellIndx;
-//will make swap clicked cell contents with blank cell contents
-  var temp = oCells[cellIndex].innerHTML;
-     oCells[cellIndex].innerHTML = '';
-     oCells[blankIndx].innerHTML = temp;
-    //cellIndex is the cell index of the new blank square
-    drawBoard(cellIndex);
-  }
+     touchingCells[i].onclick=function (e) {
+       moveTile(e.target);
+     }
+   }
  }
+
+ function moveTile(targetElement){
+   var cellIndex = (getRowIndex(targetElement)*4)+getCellIndex(targetElement);
+   var blankIndx = oBlank.cellIndx;
+   //will make swap clicked cell contents with blank cell contents
+   var temp = oCells[cellIndex].innerHTML;
+   oCells[cellIndex].innerHTML = '';
+   oCells[blankIndx].innerHTML = temp;
+   //cellIndex is the cell index of the new blank square
+   drawBoard(cellIndex);
  }
 
 /////
 //so can use the shuffle function to switch numbers position..
- Array.prototype.shuffle = function() {
- //for(var i =0; i < 3; i++) {
-  // var p = document.querySelectorAll('.touchingCells')
-  // p[Math.floor(Math.random()*p.length)].start();
- //}
-    var s = [];
-  while (this.length) s.push(this.splice(Math.random() * this.length, 1));
-  while (s.length) this.push(s.pop());
-  return this;
-}
+ //Array.prototype.shuffle = function() {
+
+
+
+ /*var shuffle = function(){
+   for(var i =0; i < 3; i++) {
+   var p = document.querySelectorAll('.touchingCells')
+   p[Math.floor(Math.random()*p.length)].start();
+ return this;*/
+
+
+
+//    var s = [];
+//  while (this.length) s.push(this.splice(Math.random() * this.length, 1));
+//  while (s.length) this.push(s.pop());
+//  return this;
+//}
 
 
 //called to run when assigned on click.
