@@ -1,6 +1,7 @@
 //will set the game to the user to play
 function start(){
   m = 0;//with m = moves 0
+  //clear all cells
   for(i=0; i < oCells.length; i++){
     oCells[i].innerHTML = '';
   }
@@ -13,8 +14,17 @@ function start(){
     oCells[i].innerHTML = numbers[i];
   }
     drawBoard(numbers.length);
-
+    //countUP ();
 }
+
+// place all cells in order 1-15
+//done
+// select the touchingCells (for i = 1, there should be 2)
+// var cells = document.selectElementByClassName("className")
+
+// pick one of those cells randomly
+
+// move one of those cells
 
 //This will make the board to 'clear'to new set of combination
 function drawBoard(num){
@@ -35,6 +45,8 @@ function drawBoard(num){
   }
 
 /////////
+
+
 
 //to select the cells around the blank space the ones..
 //that will be able to move...
@@ -101,12 +113,18 @@ function assignOnclicks(){
 
 /////
 //so can use the shuffle function to switch numbers position..
-Array.prototype.shuffle = function() {
+ Array.prototype.shuffle = function() {
+ //for(var i =0; i < 3; i++) {
+  // var p = document.querySelectorAll('.touchingCells')
+  // p[Math.floor(Math.random()*p.length)].start();
+ //}
     var s = [];
   while (this.length) s.push(this.splice(Math.random() * this.length, 1));
   while (s.length) this.push(s.pop());
-    return this;
+  return this;
 }
+
+
 //called to run when assigned on click.
 window.onload=function() {
   m = 1;
@@ -118,6 +136,15 @@ window.onload=function() {
    start();
 }
 
-
-
 ///////
+/*var counter = 0
+
+function countUP () {
+
+ counter = counter + 1;//increment the counter by 1
+ //display the new value in the div
+ //var timer = setInterval("countUP()", 1000 );
+ document.getElementById("timer_container").innerHTML = counter;
+ console.log(counter);
+ }
+*/
