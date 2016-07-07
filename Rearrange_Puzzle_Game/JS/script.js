@@ -12,11 +12,14 @@ function start(){
   for(i=0; i < numbers.length; i++){
     oCells[i].innerHTML = numbers[i];
   }
+
     drawBoard(numbers.length);
   //will shuffle 100 times based on legal moves
-  for(var i = 0; i < 100; i++){
+  for(var i = 0; i < 2; i++){
     shuffle()
-}
+
+  }/////start the timer on the click of start new game
+  timer();
 }
 
 
@@ -38,6 +41,7 @@ function drawBoard(num){
   touchingCells = getTouchingCells(oBlank);
 //will write on the clicked assigned touching cells
      assignOnclicks();
+
   }
 
 
@@ -50,7 +54,6 @@ function drawBoard(num){
     moveTile(touchingCells[randomNum],"shuffle");
   }
 
-  // //test end
 
 //to select the cells around the blank space the ones..
 //that will be able to move...(legal move)
@@ -118,9 +121,14 @@ function assignOnclicks(){
 
 ///Based on the last move if goal combination will check for the
 ///for the winner if the winner will send a alert...with the total moves made by the player
+///also display the time used to solve the puzzle
    if (checkWinner()&& check == "click"){
-     alert("Congratulations, You Win!!!! " + "Your Total: " + m*0.5 + " moves.");
-
+     alert("Congratulations, You Win!!!! " + "  Your Total: " + m*0.5 + " moves.      " + "           Time: " + h5.textContent);
+////if winner stop the timer
+      clearTimeout(t);
+////reset to zero the timer
+      clear();
+  ///continue the game moves
   } else{
      drawBoard(cellIndex);
 }
@@ -147,19 +155,38 @@ window.onload=function() {
   oRows = document.getElementById('board').getElementsByTagName('tr');
   oCells = document.getElementById('board').getElementsByTagName('td');
  document.getElementById('btnStart').onclick = start;
-
-   start();
 }
 
 ///////
-/*var counter = 0
+///END
+//////
+var h5 = document.getElementsByTagName('h5')[0],
+    seconds = 0, minutes = 0, hours = 0,
+    t;
+///counter for the timer
+ function add() {
+    seconds++;
+    if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+        if (minutes >= 60) {
+            minutes = 0;
+            hours++;
+        }
+    }
+////display the timer
+h5 = document.getElementsByTagName('h5')[0],
+    h5.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
 
-function countUP () {
+    timer();
+}
+////run the timer
+function timer() {
+    t = setTimeout(add, 1000);
+}
 
- counter = counter + 1;//increment the counter by 1
- //display the new value in the div
- //var timer = setInterval("countUP()", 1000 );
- document.getElementById("timer_container").innerHTML = counter;
- console.log(counter);
- }
-*/
+/// Clear button
+    function clear() {
+    h5.textContent = "00:00:00";
+    seconds = 0; minutes = 0; hours = 0;
+}
