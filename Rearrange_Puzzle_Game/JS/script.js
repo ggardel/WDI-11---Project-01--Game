@@ -15,7 +15,7 @@ function start(){
 
     drawBoard(numbers.length);
   //will shuffle 100 times based on legal moves
-  for(var i = 0; i < 2; i++){
+  for(var i = 0; i < 4; i++){
     shuffle()
 
   }/////start the timer on the click of start new game
@@ -123,7 +123,7 @@ function assignOnclicks(){
 ///for the winner if the winner will send a alert...with the total moves made by the player
 ///also display the time used to solve the puzzle
    if (checkWinner()&& check == "click"){
-     alert("Congratulations, You Win!!!! " + "  Your Total: " + m*0.5 + " moves.      " + "           Time: " + h5.textContent);
+      alert("Congratulations, You Win!!!! " + "  Your Total: " + m*0.5 + " moves.      " + "           Time: " + h5.textContent);
 ////if winner stop the timer
       clearTimeout(t);
 ////reset to zero the timer
@@ -174,6 +174,8 @@ var h5 = document.getElementsByTagName('h5')[0],
             hours++;
         }
     }
+
+
 ////display the timer
 h5 = document.getElementsByTagName('h5')[0],
     h5.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
