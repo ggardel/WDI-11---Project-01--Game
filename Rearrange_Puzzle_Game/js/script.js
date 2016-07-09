@@ -15,7 +15,7 @@ function start(){
 
     drawBoard(numbers.length);
   //will shuffle 100 times based on legal moves
-  for(var i = 0; i < 4; i++){
+  for(var i = 0; i < 100; i++){
     shuffle()
 
   }/////start the timer on the click of start new game
