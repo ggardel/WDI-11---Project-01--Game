@@ -1,5 +1,8 @@
 "ReArrange - Puzzle"
 # WDI-11---Project-01--Game 
+
+<a href="http://imgur.com/7RCxopv"><img src="http://i.imgur.com/7RCxopv.png" title="source: imgur.com" /></a>
+
 Instructions
 
 The purpose of the puzzle is to rearrange the initial configuration of the tiles to match another configuration known as the goal configuration. The rearrangement task is achieved by swapping the empty tile with some other tile in all possible directions (up, down, left, and right).
@@ -18,3 +21,13 @@ Users Stories
 - As a player, I want to know about the person who developed the game;
 - As a player, I want to play a game that is easy to control the commands;
 - As a player, I want to be challenged, with timer or score list;
+
+Technology used:
+
+<a href="http://imgur.com/7URjEcl"><img src="http://i.imgur.com/7URjEcl.png" title="source: imgur.com" /></a>
+
+<a href="http://imgur.com/Syj0Mib"><img src="http://i.imgur.com/Syj0Mib.png" title="source: imgur.com" /></a>
+
+<a href="http://imgur.com/wZewot5"><img src="http://i.imgur.com/wZewot5.gif?1" title="source: imgur.com" /></a>
+
+<a href="http://imgur.com/ygVBgoY"><img src="http://i.imgur.com/ygVBgoY.png" title="source: imgur.com" /></a>
