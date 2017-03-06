@@ -1,6 +1,8 @@
 "ReArrange - Puzzle"
 # WDI-11---Project-01--Game 
 
+Front-End / JavaScript Logic / Game
+
 <a href="http://imgur.com/7RCxopv"><img src="http://i.imgur.com/7RCxopv.png" title="source: imgur.com" /></a>
 
 Instructions
